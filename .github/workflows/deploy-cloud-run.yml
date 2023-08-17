@@ -34,3 +34,4 @@ jobs:
           gcloud run deploy api \
             --image gcr.io/${{ secrets.PROJECT_ID }}/api\
             --platform managed 
+            --region=us-us-central1
