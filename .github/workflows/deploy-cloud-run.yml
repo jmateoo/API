@@ -32,4 +32,4 @@ jobs:
         run: |
           gcloud run deploy nombre-de-la-app \
             --image gcr.io/${{ secrets.PROJECT_ID }}/api\
-            --platform managed
+            --platform managed 
