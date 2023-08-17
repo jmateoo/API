@@ -25,11 +25,12 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          cd dbmigrate
           docker build -t gcr.io/${{ secrets.PROJECT_ID }}/api .
           docker push gcr.io/${{ secrets.PROJECT_ID }}/api
 
       - name: Deploy to Cloud Run
         run: |
-          gcloud run deploy nombre-de-la-app \
+          gcloud run deploy api \
             --image gcr.io/${{ secrets.PROJECT_ID }}/api\
             --platform managed 
