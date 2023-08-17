@@ -28,10 +28,4 @@ jobs:
           cd dbmigrate
           docker build -t gcr.io/${{ secrets.PROJECT_ID }}/api .
           docker push gcr.io/${{ secrets.PROJECT_ID }}/api
-
-      - name: Deploy to Cloud Run
-        run: |
-          gcloud run deploy api \
-            --region=us-central1 \
-            --image gcr.io/${{ secrets.PROJECT_ID }}/api:latest \
-            --platform managed 
+          cd ..      
