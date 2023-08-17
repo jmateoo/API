@@ -6,9 +6,10 @@ services:
       dockerfile: Dockerfile
     entrypoint: ["./wait.sh"]
     ports:
-      - "8080:8080"
+      - "8000:8000"
 
   db:
+    platform: linux/x86_64
     image: mysql:8.0.21
     ports:
       - "30000:3306"
