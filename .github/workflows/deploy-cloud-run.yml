@@ -31,6 +31,10 @@ jobs:
           cd ..  
     
       - name: Connect to k8s cluster
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_key: ${{ secrets.GCLOUD_AUTH }}
       - run: |
-          gcloud container clusters get-credentials api-globant --region us-central1 --project static-anchor-396016
-          echo "Connection with cluster was sucessful"
+            gcloud container clusters get-credentials api-globant --region us-central1
+            echo "Connection with cluster was successful"
