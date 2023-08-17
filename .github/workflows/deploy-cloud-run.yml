@@ -1,4 +1,4 @@
-name: Deploy to Cloud Run
+name: Deploy to GCP
 
 on:
   push:
@@ -28,4 +28,9 @@ jobs:
           cd dbmigrate
           docker build -t gcr.io/${{ secrets.PROJECT_ID }}/api .
           docker push gcr.io/${{ secrets.PROJECT_ID }}/api
-          cd ..      
+          cd ..  
+    
+      - name: Connect to k8s cluster
+      - run: |
+          gcloud container clusters get-credentials api-globant --region us-central1 --project static-anchor-396016
+          echo "Connection with cluster was sucessful"
